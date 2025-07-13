@@ -5,7 +5,6 @@ use log::{debug, info, trace, warn};
 use parsing::{Encapsulation, Frame};
 use pcap_file::pcap::{PcapHeader, PcapPacket, PcapWriter};
 use pcap_file::{DataLink, PcapError, TsResolution};
-use std::default;
 use std::fs::File;
 use std::io::{Write, stdout};
 use std::time::SystemTime;
@@ -56,7 +55,7 @@ impl<W: Write> FrameWriter<W> {
 
         if let Some(encap) = frame.encapsulation {
             let datalink = encap2datalink(encap);
-            if (self.header.datalink != datalink) {
+            if self.header.datalink != datalink {
                 warn!(
                     "Mixed frame encapsulations: {:?}; expected {:?}",
                     datalink, self.header.datalink
