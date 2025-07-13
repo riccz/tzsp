@@ -1,7 +1,8 @@
-mod tzsp;
+mod parsing;
 
 use clap::Parser;
 use log::{debug, info, trace, warn};
+use parsing::{Encapsulation, Frame};
 use pcap_file::pcap::{PcapHeader, PcapPacket, PcapWriter};
 use pcap_file::{DataLink, PcapError, TsResolution};
 use std::default;
@@ -9,7 +10,6 @@ use std::fs::File;
 use std::io::{Write, stdout};
 use std::time::SystemTime;
 use tokio::net::UdpSocket;
-use tzsp::{Encapsulation, Frame};
 
 fn encap2datalink(encap: Encapsulation) -> DataLink {
     use DataLink as D;

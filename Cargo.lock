@@ -596,7 +596,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "tzsp_tools"
+name = "tzsp"
 version = "0.1.0"
 dependencies = [
  "clap",
