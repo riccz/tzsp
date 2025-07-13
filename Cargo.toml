@@ -1,7 +1,10 @@
 [package]
 name = "tzsp"
+description = "A CLI tool to listen for TZSP packets and convert them to PCAP"
+repository = "https://github.com/riccz/tzsp"
 version = "0.1.0"
 edition = "2024"
+license = "GPL-3.0+"
 
 [dependencies]
 clap = { version = "4.5.40", features = ["derive"] }
